@@ -9,6 +9,9 @@ load_dotenv()
 # 環境変数からAPIキーを取得
 api_key = os.getenv("OPENAI_API_KEY")
 
+if not api_key:
+    raise ValueError("APIキーが設定されていません。環境変数を確認してください。")
+
 # ChatOpenAIクラスを使用してモデルを設定
 llm = ChatOpenAI(
     model="gpt-4o-mini",
